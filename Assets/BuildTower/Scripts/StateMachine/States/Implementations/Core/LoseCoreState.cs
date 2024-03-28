@@ -6,6 +6,7 @@
     {
         public override void StateEnter()
         {
+            AdsManager.ShowRewarded();
             RSceneManager.ChangeScene("Menu");
         }
     }
