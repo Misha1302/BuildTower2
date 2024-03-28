@@ -1,7 +1,7 @@
-using UnityEngine;
-
-namespace GP_Utilities.Console
+namespace Packages.Plugins.GamePush.Runtime.Utilities
 {
+    using UnityEngine;
+
     public class GP_ConsoleController : MonoBehaviour
     {
         public static GP_ConsoleController Instance;

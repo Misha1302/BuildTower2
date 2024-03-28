@@ -1,7 +1,7 @@
 ﻿namespace BuildTower.Scripts.Helpers
 {
     using System;
-    using GamePush;
+    using Packages.Plugins.GamePush.Runtime.Modules;
 
     public static class AdsManager
     {

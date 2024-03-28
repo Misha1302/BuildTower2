@@ -1,10 +1,10 @@
 using UnityEditor;
 using UnityEngine;
 
-using GP_Utilities.Console;
-
 namespace GamePush
 {
+    using Packages.Plugins.GamePush.Runtime.Utilities;
+
     [CustomEditor(typeof(GP_ConsoleController))]
     public class GP_Editor : Editor
     {

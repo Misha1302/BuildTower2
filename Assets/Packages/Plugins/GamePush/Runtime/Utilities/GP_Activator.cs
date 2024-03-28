@@ -1,8 +1,9 @@
-using System;
-using UnityEngine;
-
-namespace GamePush
+namespace Packages.Plugins.GamePush.Runtime.Utilities
 {
+    using System;
+    using Packages.Plugins.GamePush.Runtime.Modules;
+    using UnityEngine;
+
     public enum ECloudActivatorType
     {
         SocialShare = 0,

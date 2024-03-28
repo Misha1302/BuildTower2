@@ -1,9 +1,8 @@
-using UnityEngine;
-using GamePush;
-using GP_Utilities.Console;
-
-namespace GP_Utilities.Initialization
+namespace Packages.Plugins.GamePush.Runtime.Utilities
 {
+    using Packages.Plugins.GamePush.Runtime.Modules;
+    using UnityEngine;
+
     public class GP_Initialization
     {
         static string VERSION = "v1.3.0";

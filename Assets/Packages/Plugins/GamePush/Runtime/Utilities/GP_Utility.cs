@@ -1,14 +1,11 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.UI;
-
-using GamePush;
-using GP_Utilities;
-
-namespace GP_Utilities
+namespace Packages.Plugins.GamePush.Runtime.Utilities
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using UnityEngine;
+    using UnityEngine.Networking;
+    using UnityEngine.UI;
+
     public class GP_Utility
     {
         public async static Task DownloadImageAsync(string url, Image image)
@@ -152,10 +149,7 @@ namespace GP_Utilities
     {
         public int[] idsArray;
     }
-}
 
-namespace GamePush
-{
     public class GP_Data
     {
         private string _data;

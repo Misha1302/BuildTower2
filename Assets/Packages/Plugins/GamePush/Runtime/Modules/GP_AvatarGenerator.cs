@@ -1,11 +1,10 @@
-using System.Runtime.InteropServices;
-using UnityEngine;
-using UnityEngine.Events;
-
-using GP_Utilities.Console;
-
-namespace GamePush
+namespace Packages.Plugins.GamePush.Runtime.Modules
 {
+    using System.Runtime.InteropServices;
+    using Packages.Plugins.GamePush.Runtime.Utilities;
+    using UnityEngine;
+    using UnityEngine.Events;
+
     public class GP_AvatarGenerator : MonoBehaviour
     {
         public static event UnityAction<string> OnChange;

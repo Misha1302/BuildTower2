@@ -1,13 +1,11 @@
-using System;
-using System.Runtime.InteropServices;
-using UnityEngine;
-using UnityEngine.Events;
-
-using GP_Utilities;
-using GP_Utilities.Console;
-
-namespace GamePush
+namespace Packages.Plugins.GamePush.Runtime.Modules
 {
+    using System.Runtime.InteropServices;
+    using Packages.Plugins.GamePush.Runtime.Utilities;
+    using UnityEngine;
+    using UnityEngine.Events;
+    using Console = Packages.Plugins.GamePush.Runtime.Utilities.Console;
+
     public class GP_Rewards : MonoBehaviour
     {
         public static event UnityAction<AllRewardData> OnRewardsGive;

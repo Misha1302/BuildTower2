@@ -3,6 +3,8 @@ using UnityEditor;
 
 namespace Plugins.GamePush.Editor
 {
+    using Packages.Plugins.GamePush.Runtime.Utilities;
+
     sealed class GP_SettingsProvider : SettingsProvider
     {
         public  GP_SettingsProvider()

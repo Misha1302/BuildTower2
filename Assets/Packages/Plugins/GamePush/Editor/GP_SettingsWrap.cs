@@ -3,6 +3,8 @@ using UnityEditor;
 
 namespace Plugins.GamePush.Editor
 {
+    using Packages.Plugins.GamePush.Runtime.Utilities;
+
     [FilePath("Assets/Plugins/GamePush/Data/GP_SettingsWrap.asset",
         FilePathAttribute.Location.ProjectFolder)]
     public sealed class GP_SettingsWrap : ScriptableSingleton<GP_SettingsWrap>

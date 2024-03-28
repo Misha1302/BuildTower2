@@ -1,14 +1,13 @@
-using System;
-using System.Runtime.InteropServices;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
-
-using GP_Utilities.Console;
-using GP_Utilities;
-
-namespace GamePush
+namespace Packages.Plugins.GamePush.Runtime.Modules
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Runtime.InteropServices;
+    using Packages.Plugins.GamePush.Runtime.Utilities;
+    using UnityEngine;
+    using UnityEngine.Events;
+    using Console = Packages.Plugins.GamePush.Runtime.Utilities.Console;
+
     public class GP_Files : MonoBehaviour
     {
         public static event UnityAction<FileData> OnUploadSuccess;

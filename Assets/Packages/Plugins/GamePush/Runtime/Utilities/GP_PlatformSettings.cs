@@ -1,9 +1,10 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace GamePush
+namespace Packages.Plugins.GamePush.Runtime.Utilities
 {
+    using System;
+    using System.Collections.Generic;
+    using Packages.Plugins.GamePush.Runtime.Modules;
+    using UnityEngine;
+
     [Serializable]
     public class PlatformSettings
     {

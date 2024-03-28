@@ -1,8 +1,9 @@
-using System;
-using System.Collections.Generic;
-
-namespace GamePush
+namespace Packages.Plugins.GamePush.Runtime.Utilities
 {
+    using System;
+    using System.Collections.Generic;
+    using Packages.Plugins.GamePush.Runtime.Modules;
+
     [Serializable]
     public sealed class GP_Settings
     {

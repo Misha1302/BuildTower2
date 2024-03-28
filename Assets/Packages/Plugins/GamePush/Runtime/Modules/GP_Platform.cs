@@ -1,10 +1,9 @@
-using System.Runtime.InteropServices;
-using UnityEngine;
-
-using GP_Utilities.Console;
-
-namespace GamePush
+namespace Packages.Plugins.GamePush.Runtime.Modules
 {
+    using System.Runtime.InteropServices;
+    using Packages.Plugins.GamePush.Runtime.Utilities;
+    using UnityEngine;
+
     public class GP_Platform : MonoBehaviour
     {
         private static string YANDEX = "YANDEX";
