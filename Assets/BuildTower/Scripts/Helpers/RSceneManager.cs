@@ -27,13 +27,13 @@ namespace BuildTower.Scripts.Helpers
         private static void OnSceneChangedHandler(Scene scene, LoadSceneMode mode)
         {
             _panel.Whiting();
-            InvokeAfter(OnSceneChanged.Invoke, _panel.WhitingLengthInSec);
+            InvokeAfter(OnSceneChanged.Invoke, _panel.WhitingLengthInSec.Value);
         }
 
         public static void ChangeScene(string name)
         {
             _panel.Blacking();
-            InvokeAfter(() => SceneManager.LoadScene(name), _panel.BlackingLengthInSec);
+            InvokeAfter(() => SceneManager.LoadScene(name), _panel.BlackingLengthInSec.Value);
         }
 
         private static void InvokeAfter(this Action act, float time)

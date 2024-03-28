@@ -1,5 +1,6 @@
 namespace BuildTower.Scripts.Scenes
 {
+    using System;
     using System.Linq;
     using UnityEngine;
     using Cache = BuildTower.Scripts.Helpers.Cache;
@@ -7,24 +8,28 @@ namespace BuildTower.Scripts.Scenes
     [RequireComponent(typeof(Animator))]
     public class SceneChangePanel : MonoBehaviour
     {
-        private Animator _animator;
+        private readonly Lazy<Animator> _animator;
 
-        private Animator Animator => _animator == null ? _animator = GetComponent<Animator>() : _animator;
+        public readonly Lazy<float> BlackingLengthInSec;
+        public readonly Lazy<float> WhitingLengthInSec;
 
-        public float BlackingLengthInSec =>
-            _animator.runtimeAnimatorController.animationClips.First(x => x.name == "Blacking").length;
+        public SceneChangePanel()
+        {
+            _animator = new Lazy<Animator>(GetComponent<Animator>);
 
-        public float WhitingLengthInSec =>
-            _animator.runtimeAnimatorController.animationClips.First(x => x.name == "Whiting").length;
+            var clips = _animator.Value.runtimeAnimatorController.animationClips;
+            WhitingLengthInSec = new Lazy<float>(() => clips.First(x => x.name == "Whiting").length);
+            BlackingLengthInSec = new Lazy<float>(() => clips.First(x => x.name == "Blacking").length);
+        }
 
         public void Blacking()
         {
-            Animator.SetTrigger(Cache.Blacking);
+            _animator.Value.SetTrigger(Cache.Blacking);
         }
 
         public void Whiting()
         {
-            Animator.SetTrigger(Cache.Whiting);
+            _animator.Value.SetTrigger(Cache.Whiting);
         }
     }
 }
