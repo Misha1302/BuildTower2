@@ -1,4 +1,4 @@
-namespace BuildTower.Scripts
+namespace BuildTower.Scripts.Scenes.Core
 {
     using UnityEngine;
 
