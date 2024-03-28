@@ -2,7 +2,6 @@ namespace BuildTower.Scripts.Game
 {
     using BuildTower.Scripts.Helpers;
     using UnityEngine;
-    using UnityEngine.SceneManagement;
 
     public class GameManager : GameSingleton<GameManager>
     {
@@ -10,14 +9,10 @@ namespace BuildTower.Scripts.Game
 
         public GameRealtimeData RealtimeData => realtimeData;
 
-        protected override void Init()
+        protected override void OnAwake()
         {
-            realtimeData.Init();
-        }
-
-        protected override void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            RealtimeData.OnSceneChanged();
+            realtimeData.OnAwake();
+            RSceneManager.OnSceneChanged.AddListener(RealtimeData.OnSceneChanged);
         }
     }
 }

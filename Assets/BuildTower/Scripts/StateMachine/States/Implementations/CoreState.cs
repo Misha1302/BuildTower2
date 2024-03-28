@@ -17,6 +17,11 @@
             HandleNextCube();
         }
 
+        public override void StateLeave()
+        {
+            CoreSceneData.Instance.InputManager.OnTouch.RemoveListener(HandleNextCube);
+        }
+
         private static void SpawnFirstCube()
         {
             var cube = LvlGen.SpawnFirstCube();

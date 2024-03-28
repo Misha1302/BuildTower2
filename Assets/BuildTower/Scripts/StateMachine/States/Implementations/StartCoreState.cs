@@ -7,13 +7,13 @@
     {
         public override void StateEnter()
         {
-            // TODO: UI with text "press X or click to continue"
-
+            CoreSceneData.Instance.UIManager.StartPanel.Enable();
             CoreSceneData.Instance.InputManager.OnTouch.AddListener(StartGame);
         }
 
         public override void StateLeave()
         {
+            CoreSceneData.Instance.UIManager.StartPanel.Disable();
             CoreSceneData.Instance.InputManager.OnTouch.RemoveListener(StartGame);
         }
 

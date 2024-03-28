@@ -19,10 +19,10 @@
             Instance = (TSelf)this;
 
             MakeGameSingleton();
-            Init();
+            OnAwake();
         }
 
-        protected virtual void Init()
+        protected virtual void OnAwake()
         {
         }
 
@@ -32,12 +32,6 @@
                 Thrower.Throw("Game singleton must have no parents");
 
             DontDestroyOnLoad(gameObject);
-
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-
-        protected virtual void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
         }
     }
 }

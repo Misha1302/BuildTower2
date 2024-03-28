@@ -7,9 +7,13 @@ namespace BuildTower.Scripts.Scenes.Core.Main
     public class CoreSceneData : SceneSingleton<CoreSceneData>
     {
         [SerializeField] private LevelGenerator levelGenerator;
+        [SerializeField] private UiManager uiManager;
 
         public InputManager InputManager { get; private set; }
+
         public LevelGenerator LevelGenerator => levelGenerator;
+        public UiManager UIManager => uiManager;
+
 
         protected override void OnInit()
         {

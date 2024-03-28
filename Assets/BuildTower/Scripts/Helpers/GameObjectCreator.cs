@@ -15,5 +15,9 @@
 
         public static T3 Create<T, T2, T3>() where T : Component where T2 : Component where T3 : Component =>
             Create<T, T2>().gameObject.AddComponent<T3>();
+
+        public class EmptyMonoBeh : MonoBehaviour
+        {
+        }
     }
 }

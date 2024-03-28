@@ -2,5 +2,9 @@
 {
     public class LoseCoreState : StateBase
     {
+        public override void StateEnter()
+        {
+            RSceneManager.ChangeScene("Menu");
+        }
     }
 }
