@@ -1,6 +1,8 @@
 ﻿namespace BuildTower.Scripts.Scenes.Core.Gameplay
 {
+    using System;
     using System.Collections.Generic;
+    using BuildTower.Scripts.Helpers;
     using BuildTower.Scripts.Helpers.Extensions;
     using UnityEngine;
 
@@ -14,10 +16,22 @@
         [SerializeField] private Transform secondMovementPoint;
         [SerializeField] private float cubeSpeed;
 
-
         private readonly List<Transform> _cubes = new();
-        public IReadOnlyList<Transform> Cubes => _cubes;
 
+        public readonly Lazy<Transform> MiddlePoint;
+
+        public LevelGenerator()
+        {
+            MiddlePoint = new Lazy<Transform>(() =>
+            {
+                var t = GameObjectCreator.Create().transform;
+                t.position = StartPosition;
+                return t;
+            });
+        }
+
+        public IReadOnlyList<Transform> Cubes => _cubes;
+        private Vector3 StartPosition => (firstMovementPoint.position + secondMovementPoint.position) / 2;
 
         public CubeMovement SpawnCube()
         {
@@ -32,7 +46,7 @@
                 cubeSpeed
             );
 
-            instance.transform.position = position;
+            MiddlePoint.Value.transform.position = instance.transform.position = position;
             instance.transform.localScale = size;
 
             _cubes.Add(instance.transform);
@@ -46,7 +60,7 @@
         {
             if (_cubes.Count == 0)
             {
-                position = (firstMovementPoint.position + secondMovementPoint.position) / 2;
+                position = StartPosition;
                 size = startSize;
             }
             else

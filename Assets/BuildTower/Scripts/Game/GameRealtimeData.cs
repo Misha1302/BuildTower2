@@ -22,7 +22,12 @@
 
         public void OnSceneChanged()
         {
-            foreach (var item in Object.FindObjectsOfType<Transform>().SelectMany(x => x.GetComponents<IInitable>()))
+            var objects = Object.FindObjectsOfType<Transform>();
+
+            foreach (var item in objects.SelectMany(x => x.GetComponents<IFirstOrderInitable>()))
+                item.Init();
+
+            foreach (var item in objects.SelectMany(x => x.GetComponents<IInitable>()))
                 item.Init();
 
             var sceneData = Object.FindObjectOfType<StatesSceneData>();
