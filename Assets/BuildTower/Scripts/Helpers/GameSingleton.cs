@@ -1,11 +1,10 @@
 ﻿namespace BuildTower.Scripts.Helpers
 {
     using UnityEngine;
-    using UnityEngine.Events;
     using UnityEngine.SceneManagement;
 
     [DefaultExecutionOrder(-5)]
-    public class MonoBehSingleton<TSelf> : MonoBehaviour where TSelf : MonoBehSingleton<TSelf>
+    public abstract class GameSingleton<TSelf> : MonoBehaviour where TSelf : GameSingleton<TSelf>
     {
         public static TSelf Instance { get; private set; }
 
@@ -19,6 +18,7 @@
 
             Instance = (TSelf)this;
 
+            MakeGameSingleton();
             Init();
         }
 
@@ -26,14 +26,18 @@
         {
         }
 
-        protected void MakeGameSingleton(UnityAction<Scene, LoadSceneMode> onSceneLoaded)
+        private void MakeGameSingleton()
         {
             if (transform.parent != null)
                 Thrower.Throw("Game singleton must have no parents");
 
             DontDestroyOnLoad(gameObject);
 
-            SceneManager.sceneLoaded += onSceneLoaded;
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        protected virtual void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
         }
     }
 }

@@ -2,8 +2,9 @@ namespace BuildTower.Scripts.Game
 {
     using BuildTower.Scripts.Helpers;
     using UnityEngine;
+    using UnityEngine.SceneManagement;
 
-    public class GameManager : MonoBehSingleton<GameManager>
+    public class GameManager : GameSingleton<GameManager>
     {
         [SerializeField] private GameRealtimeData realtimeData;
 
@@ -12,7 +13,11 @@ namespace BuildTower.Scripts.Game
         protected override void Init()
         {
             realtimeData.Init();
-            MakeGameSingleton(RealtimeData.OnSceneChanged);
+        }
+
+        protected override void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            RealtimeData.OnSceneChanged();
         }
     }
 }

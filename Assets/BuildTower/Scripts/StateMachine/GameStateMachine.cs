@@ -1,9 +1,10 @@
-namespace BuildTower.Scripts.States
+namespace BuildTower.Scripts.StateMachine
 {
     using System;
     using System.Collections.Generic;
     using BuildTower.Scripts.Helpers;
     using BuildTower.Scripts.StateMachine.States;
+    using BuildTower.Scripts.StateMachine.States.Implementations;
     using UnityEngine;
 
     public class GameStateMachine : MonoBehaviour

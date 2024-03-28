@@ -1,4 +1,4 @@
-﻿namespace BuildTower.Scripts.StateMachine.States
+﻿namespace BuildTower.Scripts.StateMachine.States.Implementations
 {
     public class PlugState : StateBase
     {

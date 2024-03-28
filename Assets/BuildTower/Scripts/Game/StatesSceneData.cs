@@ -3,7 +3,7 @@
     using BuildTower.Scripts.StateMachine.States;
     using UnityEngine;
 
-    public class SceneData : MonoBehaviour
+    public class StatesSceneData : MonoBehaviour
     {
         [SerializeField] private StateBase defaultState;
         [SerializeField] private StateBase[] states;
