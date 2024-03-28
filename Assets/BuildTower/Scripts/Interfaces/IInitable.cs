@@ -1,4 +1,4 @@
-﻿namespace BuildTower.Scripts.Helpers
+﻿namespace BuildTower.Scripts.Interfaces
 {
     public interface IInitable
     {

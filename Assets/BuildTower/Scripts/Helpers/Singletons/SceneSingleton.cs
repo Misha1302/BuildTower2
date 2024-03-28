@@ -1,5 +1,6 @@
-﻿namespace BuildTower.Scripts.Helpers
+﻿namespace BuildTower.Scripts.Helpers.Singletons
 {
+    using BuildTower.Scripts.Interfaces;
     using UnityEngine;
 
     public abstract class SceneSingleton<TSelf> : MonoBehaviour, IInitable where TSelf : SceneSingleton<TSelf>

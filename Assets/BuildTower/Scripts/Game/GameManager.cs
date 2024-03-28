@@ -1,6 +1,7 @@
 namespace BuildTower.Scripts.Game
 {
     using BuildTower.Scripts.Helpers;
+    using BuildTower.Scripts.Helpers.Singletons;
     using UnityEngine;
 
     public class GameManager : GameSingleton<GameManager>

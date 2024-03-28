@@ -1,8 +1,8 @@
-namespace BuildTower.Scripts
+namespace BuildTower.Scripts.Helpers
 {
     using System;
     using System.Collections;
-    using BuildTower.Scripts.Helpers;
+    using BuildTower.Scripts.Scenes;
     using UnityEngine;
     using UnityEngine.Events;
     using UnityEngine.SceneManagement;

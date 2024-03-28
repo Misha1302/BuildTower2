@@ -1,7 +1,8 @@
-namespace BuildTower
+namespace BuildTower.Scripts.Scenes
 {
     using System.Linq;
     using UnityEngine;
+    using Cache = BuildTower.Scripts.Helpers.Cache;
 
     [RequireComponent(typeof(Animator))]
     public class SceneChangePanel : MonoBehaviour

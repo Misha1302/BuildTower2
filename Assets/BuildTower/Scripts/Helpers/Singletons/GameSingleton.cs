@@ -1,7 +1,6 @@
-﻿namespace BuildTower.Scripts.Helpers
+﻿namespace BuildTower.Scripts.Helpers.Singletons
 {
     using UnityEngine;
-    using UnityEngine.SceneManagement;
 
     [DefaultExecutionOrder(-5)]
     public abstract class GameSingleton<TSelf> : MonoBehaviour where TSelf : GameSingleton<TSelf>

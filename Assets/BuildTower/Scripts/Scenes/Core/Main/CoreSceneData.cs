@@ -1,6 +1,7 @@
 namespace BuildTower.Scripts.Scenes.Core.Main
 {
     using BuildTower.Scripts.Helpers;
+    using BuildTower.Scripts.Helpers.Singletons;
     using BuildTower.Scripts.Scenes.Core.Gameplay;
     using UnityEngine;
 

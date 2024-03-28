@@ -1,4 +1,4 @@
-﻿namespace BuildTower
+﻿namespace BuildTower.Scripts.Helpers
 {
     using UnityEngine;
 

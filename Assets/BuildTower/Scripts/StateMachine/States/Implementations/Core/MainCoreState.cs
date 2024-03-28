@@ -1,11 +1,11 @@
-﻿namespace BuildTower.Scripts.StateMachine.States.Implementations
+﻿namespace BuildTower.Scripts.StateMachine.States.Implementations.Core
 {
     using BuildTower.Scripts.Game;
     using BuildTower.Scripts.Scenes.Core.Gameplay;
     using BuildTower.Scripts.Scenes.Core.Main;
     using UnityEngine;
 
-    public class CoreState : StateBase
+    public class MainCoreState : StateBase
     {
         private static LevelGenerator LvlGen => CoreSceneData.Instance.LevelGenerator;
 

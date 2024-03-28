@@ -1,4 +1,4 @@
-﻿namespace BuildTower.Scripts.StateMachine.States.Implementations
+﻿namespace BuildTower.Scripts.StateMachine.States.Implementations.Core
 {
     using BuildTower.Scripts.Game;
     using BuildTower.Scripts.Scenes.Core.Main;
@@ -19,7 +19,7 @@
 
         private static void StartGame()
         {
-            GameManager.Instance.RealtimeData.GameStateMachine.ChangeState<CoreState>();
+            GameManager.Instance.RealtimeData.GameStateMachine.ChangeState<MainCoreState>();
         }
     }
 }
