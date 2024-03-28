@@ -17,10 +17,11 @@ namespace BuildTower.Scripts.Scenes
         {
             _animator = new Lazy<Animator>(GetComponent<Animator>);
 
-            var clips = _animator.Value.runtimeAnimatorController.animationClips;
-            WhitingLengthInSec = new Lazy<float>(() => clips.First(x => x.name == "Whiting").length);
-            BlackingLengthInSec = new Lazy<float>(() => clips.First(x => x.name == "Blacking").length);
+            WhitingLengthInSec = new Lazy<float>(() => Clips.First(x => x.name == "Whiting").length);
+            BlackingLengthInSec = new Lazy<float>(() => Clips.First(x => x.name == "Blacking").length);
         }
+
+        private AnimationClip[] Clips => _animator.Value.runtimeAnimatorController.animationClips;
 
         public void Blacking()
         {
