@@ -1,4 +1,4 @@
-﻿namespace BuildTower.Scripts.StateMachine.States.Implementations.Core
+﻿namespace BuildTower.Scripts.Scenes.Core.Gameplay
 {
     using System.Collections;
     using UnityEngine;
