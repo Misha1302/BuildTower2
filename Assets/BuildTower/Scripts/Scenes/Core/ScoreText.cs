@@ -1,26 +1,29 @@
 ﻿namespace BuildTower.Scripts.Scenes.Core
 {
-    using TMPro;
+    using System;
+    using BuildTower.Scripts.Game;
+    using BuildTower.Scripts.Scenes.Core.Main;
     using UnityEngine;
 
-    [RequireComponent(typeof(TMP_Text))]
-    public class ScoreText : MonoBehaviour
+    [RequireComponent(typeof(GameText))]
+    public class ScoreText : MonoBehaviour, ISceneStart
     {
-        [SerializeField] private string format = "{0}";
-        private TMP_Text _text;
+        private readonly Lazy<GameText> _text;
 
-
-        private void Start()
+        public ScoreText()
         {
-            _text = GetComponent<TMP_Text>();
+            _text = new Lazy<GameText>(GetComponent<GameText>);
+        }
 
+        public void OnSceneStarted()
+        {
             DataManager.GameData.OnScoreChanged.AddListener(UpdateText);
-            //UpdateText();
+            UpdateText();
         }
 
         private void UpdateText()
         {
-            _text.text = string.Format(format, DataManager.GameData.Score.ToString("0.##"));
+            _text.Value.SetText(DataManager.GameData.CurGameScore.ToString("0.##"));
         }
     }
 }

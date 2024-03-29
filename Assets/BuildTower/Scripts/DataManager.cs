@@ -1,10 +1,6 @@
 ﻿namespace BuildTower.Scripts
 {
-    using System;
-    using Packages.Plugins.GamePush.Runtime.Modules;
-    using Packages.Plugins.GamePush.Runtime.Utilities;
     using UnityEngine;
-    using UnityEngine.Events;
 
     public static class DataManager
     {
@@ -29,24 +25,6 @@
         private static void SaveData()
         {
             PlayerPrefs.SetString(SaveKey, JsonUtility.ToJson(GameData));
-        }
-    }
-
-    [Serializable]
-    public class GameData
-    {
-        [HideInInspector] [SerializeField] private float score;
-
-        public readonly UnityEvent OnScoreChanged = new();
-
-        public float Score
-        {
-            get => score;
-            set
-            {
-                score = value;
-                OnScoreChanged.Invoke();
-            }
         }
     }
 }

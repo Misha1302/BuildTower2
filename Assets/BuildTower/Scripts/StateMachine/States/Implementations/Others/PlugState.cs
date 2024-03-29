@@ -1,8 +1,10 @@
 ﻿namespace BuildTower.Scripts.StateMachine.States.Implementations.Others
 {
-    public class PlugState : StateBase
+    using BuildTower.Scripts.Game;
+
+    public class PlugState : StateBase, ISceneStart
     {
-        private void Awake()
+        public void OnSceneStarted()
         {
             transform.SetParent(null);
             DontDestroyOnLoad(gameObject);

@@ -1,10 +1,11 @@
 namespace BuildTower.Scripts.Scenes.Core
 {
+    using BuildTower.Scripts.Game;
     using UnityEngine;
 
-    public class PointWithoutParent : MonoBehaviour
+    public class PointWithoutParent : MonoBehaviour, ISceneStart
     {
-        private void Awake()
+        public void OnSceneStarted()
         {
             transform.SetParent(null);
         }

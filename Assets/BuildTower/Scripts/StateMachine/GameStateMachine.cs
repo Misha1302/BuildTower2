@@ -3,24 +3,25 @@ namespace BuildTower.Scripts.StateMachine
     using System;
     using System.Collections.Generic;
     using BuildTower.Scripts.Helpers;
+    using BuildTower.Scripts.Interfaces;
     using BuildTower.Scripts.StateMachine.States;
     using BuildTower.Scripts.StateMachine.States.Implementations.Others;
     using UnityEngine;
 
-    public class GameStateMachine : MonoBehaviour
+    public class GameStateMachine : MonoBehaviour, IInitable
     {
         private readonly Dictionary<Type, StateBase> _states = new();
         private StateBase _curState;
 
-        private void Awake()
+        private void Update() => _curState.StateUpdate();
+
+        private void FixedUpdate() => _curState.StateFixedUpdate();
+
+        public void Init()
         {
             _curState = GameObjectCreator.Create<PlugState>();
             AddOrSetStates(new[] { _curState });
         }
-
-        private void Update() => _curState.StateUpdate();
-
-        private void FixedUpdate() => _curState.StateFixedUpdate();
 
         public void ChangeState<T>() where T : StateBase => ChangeState(typeof(T));
 

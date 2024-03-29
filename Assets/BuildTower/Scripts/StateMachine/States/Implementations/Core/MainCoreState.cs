@@ -3,7 +3,6 @@
     using BuildTower.Scripts.Game;
     using BuildTower.Scripts.Scenes.Core.Gameplay;
     using BuildTower.Scripts.Scenes.Core.Main;
-    using BuildTower.Scripts.StateMachine.States.Implementations.Init;
     using UnityEngine;
 
     public class MainCoreState : StateBase
@@ -12,6 +11,7 @@
 
         public override void StateEnter()
         {
+            DataManager.GameData.NewGame();
             SpawnFirstCube();
 
             CoreSceneData.Instance.InputManager.OnTouch.AddListener(HandleNextCube);
@@ -34,7 +34,7 @@
             if (!IntersectPrevCubeSuccessfully())
                 return;
 
-            DataManager.GameData.Score++;
+            DataManager.GameData.IncScore();
             LvlGen.SpawnCube();
         }
 
