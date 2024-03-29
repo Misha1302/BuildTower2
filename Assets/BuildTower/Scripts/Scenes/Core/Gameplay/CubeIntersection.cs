@@ -6,15 +6,21 @@ namespace BuildTower.Scripts.Scenes.Core.Gameplay
 
     public static class CubeIntersection
     {
-        public static bool Intersect(Transform a, Transform b, out float x, out float z, out Vector3 c)
-        {
-            // ReSharper disable Unity.InefficientPropertyAccess
+        // ReSharper disable Unity.InefficientPropertyAccess
 
-            c = ((a.position + b.position) / 2).WithY(Math.Max(a.position.y, b.position.y));
-            x = 2 * (a.lossyScale.x / 2 - Math.Abs(c.x - a.position.x));
-            z = 2 * (a.lossyScale.z / 2 - Math.Abs(c.z - a.position.z));
+        public static bool Intersect(Transform a, Transform b, out Intersection intersection)
+        {
+            Intersection(a, b, out intersection);
 
             return CanIntersect(a, b);
+        }
+
+        private static void Intersection(Transform a, Transform b, out Intersection intersection)
+        {
+            var c = ((a.position + b.position) / 2).WithY(Math.Max(a.position.y, b.position.y));
+            var x = 2 * (a.lossyScale.x / 2 - Math.Abs(c.x - a.position.x));
+            var z = 2 * (a.lossyScale.z / 2 - Math.Abs(c.z - a.position.z));
+            intersection = new Intersection(x, z, c);
         }
 
         private static bool CanIntersect(Transform a, Transform b) =>

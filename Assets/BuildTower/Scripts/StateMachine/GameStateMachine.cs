@@ -4,7 +4,6 @@ namespace BuildTower.Scripts.StateMachine
     using System.Collections.Generic;
     using BuildTower.Scripts.Helpers;
     using BuildTower.Scripts.StateMachine.States;
-    using BuildTower.Scripts.StateMachine.States.Implementations;
     using BuildTower.Scripts.StateMachine.States.Implementations.Others;
     using UnityEngine;
 

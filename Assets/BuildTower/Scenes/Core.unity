@@ -248,6 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelGenerator: {fileID: 1782910576}
   uiManager: {fileID: 1163110235}
+  shadowCubePrefab: {fileID: 429787559053735787, guid: fb7a4ddd074ad96489ae573715e51022, type: 3}
 --- !u!4 &151057060
 Transform:
   m_ObjectHideFlags: 0
@@ -949,7 +950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: -72.5, y: 106.066, z: 72.45442}
+  m_FollowOffset: {x: -72.5, y: 101, z: 72.45442}
   m_XDamping: 7
   m_YDamping: 7
   m_ZDamping: 7

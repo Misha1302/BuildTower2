@@ -42,7 +42,7 @@
             var success = CubeIntersection.Intersect(
                 LvlGen.Cubes[^1].transform,
                 LvlGen.Cubes[^2].transform,
-                out var x, out var z, out var pos
+                out var intersection
             );
 
             Destroy(LvlGen.Cubes[^1].GetComponent<CubeMovement>());
@@ -53,12 +53,26 @@
                 return false;
             }
 
+            MakeShadow();
 
-            var t = LvlGen.Cubes[^1].transform;
-            t.position = pos;
-            t.localScale = new Vector3(x, t.localScale.y, z);
+            CutCube(intersection);
 
             return true;
+        }
+
+        private static void CutCube(Intersection intersection)
+        {
+            var t = LvlGen.Cubes[^1];
+            t.position = intersection.C;
+            t.localScale = new Vector3(intersection.X, t.localScale.y, intersection.Z);
+        }
+
+        private static void MakeShadow()
+        {
+            var cube = Instantiate(CoreSceneData.Instance.ShadowCubePrefab).transform;
+            cube.localScale = LvlGen.Cubes[^1].localScale;
+            cube.position = LvlGen.Cubes[^1].position;
+            cube.GetComponent<CubeShadow>().Shadow();
         }
     }
 }
