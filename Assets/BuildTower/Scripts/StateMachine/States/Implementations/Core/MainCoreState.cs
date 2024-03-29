@@ -3,6 +3,7 @@
     using BuildTower.Scripts.Game;
     using BuildTower.Scripts.Scenes.Core.Gameplay;
     using BuildTower.Scripts.Scenes.Core.Main;
+    using BuildTower.Scripts.StateMachine.States.Implementations.Init;
     using UnityEngine;
 
     public class MainCoreState : StateBase
@@ -30,8 +31,11 @@
 
         private static void HandleNextCube()
         {
-            if (IntersectPrevCubeSuccessfully())
-                LvlGen.SpawnCube();
+            if (!IntersectPrevCubeSuccessfully())
+                return;
+
+            DataManager.GameData.Score++;
+            LvlGen.SpawnCube();
         }
 
         private static bool IntersectPrevCubeSuccessfully()
