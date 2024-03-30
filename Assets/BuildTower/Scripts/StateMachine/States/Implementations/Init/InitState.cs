@@ -1,14 +1,13 @@
 namespace BuildTower.Scripts.StateMachine.States.Implementations.Init
 {
+    using BuildTower.Scripts.Game;
     using BuildTower.Scripts.Helpers;
 
-    public class InitState : StateBase
+    public class InitState : StateBase, ISceneStart
     {
-        public override void StateEnter()
+        public void OnSceneStarted()
         {
-            // GP_Player.Login();
-            // GP_Player.Sync();
-            RSceneManager.ChangeScene("Menu");
+            RSceneManager.ChangeScene("Menu", false);
         }
     }
 }

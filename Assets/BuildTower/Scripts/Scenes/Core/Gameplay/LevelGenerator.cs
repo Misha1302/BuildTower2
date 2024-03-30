@@ -43,7 +43,7 @@
             instance.Init(
                 firstMovementPoint.position.WithY(position.y),
                 secondMovementPoint.position.WithY(position.y),
-                cubeSpeed
+                cubeSpeed + DataManager.GameData.platformSpeedAdd
             );
 
             MiddlePoint.Value.transform.position = instance.transform.position = position;

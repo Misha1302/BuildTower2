@@ -6,7 +6,7 @@
 
     public static class AdsManager
     {
-        public const float FullScreenChance = 1f;
+        public const float FullScreenChance = 0.5f;
 
         public static void ShowFullScreen(
             [CanBeNull] Action onStart = null,

@@ -6,7 +6,12 @@
     {
         public override void StateEnter()
         {
-            RSceneManager.ChangeScene("Core");
+            MenuSceneData.Instance.UIManager.PlayButton.onClick.AddListener(() => RSceneManager.ChangeScene("Core"));
+        }
+
+        public override void StateLeave()
+        {
+            DataManager.GameData.platformSpeedAdd = MenuSceneData.Instance.UIManager.PlatformSpeedSlider.value;
         }
     }
 }

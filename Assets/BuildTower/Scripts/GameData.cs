@@ -9,6 +9,7 @@
     {
         [HideInInspector] [SerializeField] private float totalScore;
         [HideInInspector] [SerializeField] private float curGameScore;
+        [HideInInspector] [SerializeField] public float platformSpeedAdd;
 
         public readonly UnityEvent OnScoreChanged = new();
 
