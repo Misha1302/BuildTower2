@@ -25,7 +25,7 @@
 
         public override void StateLeave()
         {
-            Ui.GameOverPanel.SetActive(false);
+            // Ui.GameOverPanel.SetActive(false);
 
             CoreSceneData.Instance.UIManager.RestartButton.onClick.RemoveListener(Restart);
             CoreSceneData.Instance.UIManager.MenuButton.onClick.RemoveListener(SetMenu);

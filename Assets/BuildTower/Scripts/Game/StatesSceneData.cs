@@ -2,7 +2,6 @@
 {
     using System.Linq;
     using BuildTower.Scripts.StateMachine.States;
-    using Packages.Plugins.GamePush.Runtime.Modules;
     using UnityEngine;
 
     public class StatesSceneData : MonoBehaviour
@@ -16,7 +15,7 @@
 
         private void Start()
         {
-            foreach (var item in FindObjectsOfType<Transform>().SelectMany(x => x.GetComponents<ISceneStart>()))
+            foreach (var item in FindObjectsOfType<Transform>(true).SelectMany(x => x.GetComponents<ISceneStart>()))
                 item.OnSceneStarted();
         }
     }
