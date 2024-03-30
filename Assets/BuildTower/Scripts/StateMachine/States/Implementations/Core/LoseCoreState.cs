@@ -2,6 +2,7 @@
 {
     using BuildTower.Scripts.Helpers;
     using BuildTower.Scripts.Scenes.Core.Main;
+    using UnityEngine;
 
     public class LoseCoreState : StateBase
     {
@@ -17,7 +18,9 @@
             Ui.GameScore.SetText(DataManager.GameData.CurGameScore.ToString("0.##"));
             Ui.TotalScore.SetText(DataManager.GameData.TotalScore.ToString("0.##"));
 
-            AdsManager.ShowRewarded();
+            if (Random.Range(0f, 1f) < AdsManager.FullScreenChance)
+                AdsManager.ShowFullScreen();
+            else AdsManager.ShowRewarded();
         }
 
         private static void SetMenu() => RSceneManager.ChangeScene("Menu");
@@ -27,8 +30,8 @@
         {
             // Ui.GameOverPanel.SetActive(false);
 
-            CoreSceneData.Instance.UIManager.RestartButton.onClick.RemoveListener(Restart);
-            CoreSceneData.Instance.UIManager.MenuButton.onClick.RemoveListener(SetMenu);
+            Ui.RestartButton.onClick.RemoveListener(Restart);
+            Ui.MenuButton.onClick.RemoveListener(SetMenu);
         }
     }
 }

@@ -6,7 +6,21 @@
 
     public static class AdsManager
     {
-        public static void ShowRewarded([CanBeNull] Action onRewarded = null,
+        public const float FullScreenChance = 1f;
+
+        public static void ShowFullScreen(
+            [CanBeNull] Action onStart = null,
+            [CanBeNull] Action onEnd = null
+        )
+        {
+            GP_Ads.ShowFullscreen(
+                () => onStart?.Invoke(),
+                _ => onEnd?.Invoke()
+            );
+        }
+
+        public static void ShowRewarded(
+            [CanBeNull] Action onRewarded = null,
             [CanBeNull] Action onStart = null,
             [CanBeNull] Action onEnd = null)
         {
